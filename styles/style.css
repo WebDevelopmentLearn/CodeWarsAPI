@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.superBtn {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(86, 152, 233);
+  color: rgb(241, 99, 77);
+  font-weight: 600;
+  border: none;
+  transition: all 0.5s;
+}
+
+
+.superBtn:hover {
+  color: rgb(86, 152, 233);
+  background-color: rgb(241, 99, 77);
+}
+
+.superBtn:disabled {
+  color: black;
+  background-color: rgb(171, 171, 171);
+}
+
+
+
+.langContainer {
+  background-color: #f5ca74;
+  margin-bottom: 5px;
+}
