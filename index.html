@@ -2,24 +2,70 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/5a495bdc39.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="assets/logo.svg" type="image/x-icon" />
     <title>CodeWars API</title>
   </head>
   <body>
+    <nav>
+      <div class="headerContainer">
+        <img src="./assets/codewars-logo.svg" alt="codewars_logo" />
+        <h1 class="codewarsHeader">CodeWars API v1</h1>
+      </div>
+      <a class="githubSourceBtn" href="https://github.com/WebDevelopmentLearn/CodeWarsAPI" target="_blank">
+        <img class="githubLogo" src="assets/github_logo_dark.svg" alt="github_logo" />
+        <span id="githubSpan">GitHub</span>
+      </a>
+    </nav>
+    <section class="mainContainer">
+      <div class="generalInfoContainer">
+        <h2>Как это работает?</h2>
+        <p>
+          Всё довольно просто! Вам необходимо указать реальное имя пользователя, зарегистрированное на сайте
+          <b>CodeWars</b>, после чего нажать кнопку "<i>Получить статистику</i>"
+        </p>
+      </div>
+      <form action="">
+        <div class="inputContainer">
+          <label class="text500" for="nickname">
+            <input
+              class="targetUsernameInput"
+              id="nickname"
+              name="nickname"
+              type="text"
+              placeholder="Имя пользователя CodeWars"
+            />
+          </label>
+        </div>
+        <input type="submit" class="superBtn" value="Получить статистику" />
+      </form>
+      <button class="sortBtn">Отсортировать</button>
 
-  <form action="">
-    <input  id="nickname" name="nickname" type="text"  placeholder="Enter username: "/>
-    <label class="text500" for="nickname">Имя пользователя</label>
-    <input type="submit" class="superBtn" value="Получить статистику">
-  </form>
-  <button class="sortBtn">Отсортировать</button>
-    <div class="profile">
-      <h1 class="usernameH1">Статистика</h1>
-      <h2>Никнейм: </h2>
-      <ul class="langList">Languages:
-      </ul>
-    </div>
-    <script src="scripts/index.js"></script>
+      <!-- <div class="langCard">
+        <div class="headerCard">
+          <img src="./assets/langs/javascript_icon.svg" alt="javascript_icon" />
+          <h3>JavaScript</h3>
+        </div>
+        <div class="infoCard">
+          <p>Ранг: 6</p>
+          <p>Очков: 201</p>
+        </div>
+      </div> -->
+
+      <div class="profile">
+        <!--      <h1 class="usernameH1">Статистика</h1>-->
+        <!--      <h2>Никнейм: </h2>-->
+      </div>
+      <div class="langList"></div>
+    </section>
   </body>
+  <script src="scripts/index.js"></script>
 </html>

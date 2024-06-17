@@ -1,0 +1,8 @@
+
+
+@mixin flexBox($dirType: row, $justifyValue: normal, $alignValue: normal) {
+  display: flex;
+  flex-direction: $dirType;
+  justify-content: $justifyValue;
+  align-items: $alignValue;
+}

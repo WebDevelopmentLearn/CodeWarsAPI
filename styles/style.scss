@@ -1,0 +1,274 @@
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: #3b3b3b;
+  //@include flexBox(column, center, center);
+}
+
+h1,
+span {
+  color: #d8d8d8;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+span {
+  font-size: 2rem;
+}
+
+h1:before {
+  content: "\e640";
+}
+
+nav {
+  @include flexBox(row, space-between, center);
+  margin-bottom: 5px;
+  padding: 10px 6px;
+  background-color: #606060;
+  border-radius: 16px;
+  .headerContainer {
+    @include flexBox(row, center, center);
+    gap: 5px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .githubSourceBtn {
+    @include flexBox(row, center, center);
+    padding: 2px 4px;
+    gap: 2px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+    text-decoration: inherit;
+    transition: all 0.5s;
+
+    #githubSpan {
+      color: #000000;
+    }
+
+    .githubLogo {
+      height: 20px;
+    }
+
+    &:visited {
+      text-decoration: none;
+      color: #000000;
+    }
+  }
+}
+
+.mainContainer {
+  @include flexBox(column, center, center);
+  background-color: #606060;
+  border-radius: 16px;
+  padding: 0.6rem;
+
+  p,
+  h2 {
+    color: #cbcbcb;
+  }
+}
+
+.mainContainer > form {
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //align-items: center;
+  @include flexBox(column, center, center);
+  gap: 10px;
+}
+
+.generalInfoContainer {
+  margin: 0 0 10px 5px;
+}
+
+.inputContainer {
+  @include flexBox(row, center, center);
+}
+
+.targetUsernameInput {
+  width: 50vw;
+  outline: none;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 1.8rem;
+  &:focus {
+    outline: 1px solid #9170ebff;
+  }
+}
+
+.superBtn {
+  //width: 100px;
+  //height: 50px;
+  padding: 4px 6px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.5s;
+}
+
+.superBtn:hover {
+  color: #9170ebff;
+  background-color: #e27868ff;
+}
+
+.superBtn:disabled {
+  color: #000000ff;
+  background-color: #abababff;
+}
+
+.langList {
+  //@include flexBox(column, center, center);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.langContainer {
+  background-color: #8e8e8e;
+  margin-bottom: 5px;
+  padding: 0.6rem;
+  border-radius: 8px;
+}
+
+.profile {
+  .userBadge {
+    width: 90vw;
+  }
+}
+
+.langCard {
+  width: 220px;
+  height: 220px;
+  background-color: rgb(83, 83, 83);
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+
+  .headerCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 2.5rem;
+  }
+
+  .infoCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 18px blue;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .langList {
+    //@include flexBox(column, center, center);
+    // display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // gap: 30px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .langList {
+    gap: 15px;
+  }
+
+  .langCard {
+    width: 200px;
+    height: 200px;
+    // background-color: rgb(83, 83, 83);
+    padding: 5px;
+    // border-radius: 8px;
+    // transition: all 0.5s ease;
+    // display: flex;
+    // flex-direction: column;
+
+    .headerCard {
+      // display: flex;
+      // flex-direction: row;
+      font-size: 2rem;
+    }
+
+    .infoCard {
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      font-size: 1.5rem;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .langList {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .langCard {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    .headerCard {
+      // display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .infoCard {
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      gap: 10px;
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
