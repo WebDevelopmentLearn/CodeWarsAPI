@@ -1,20 +1,6 @@
-const form = document.querySelector("form");
-const input = document.querySelector("#nickname");
-const btn = document.querySelector(".superBtn");
-const img = document.querySelector(".avatar");
-const langList = document.querySelector(".langList");
-// const sortBtn = document.querySelector(".sortBtn");
-// const defaulH2 = h2.textContent;
-const githubSourceBtn = document.querySelector(".githubSourceBtn");
-const githubSpan = document.querySelector("#githubSpan");
-const githubLogo = document.querySelector(".githubLogo");
-const profile = document.querySelector(".profile");
+import { langObj, HEADERS } from "../src/utils.js";
 
-const HEADERS = {
-  "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
-};
+import { form, input, btn, img, langList, githubSourceBtn, githubLogo, githubSpan, profile } from "../src/elements.js";
 
 async function fetchData() {
   let data = null;
@@ -52,57 +38,6 @@ function initCardElements() {
 }
 
 let skillsObj = [];
-const langObj = {
-  javascript: "JavaScript",
-  python: "Python",
-  java: "Java",
-  csharp: "C#",
-  swift: "Swift",
-  sql: "SQL",
-  prolog: "Prolog",
-  kotlin: "Kotlin",
-  c: "C",
-  scala: "Scala",
-  ruby: "Ruby",
-  r: "R",
-  haskell: "Haskell",
-  elixir: "Elixir",
-  dart: "Dart",
-  typescript: "TypeScript",
-  coffeescript: "CoffeeScript",
-  rust: "Rust",
-  go: "Golang",
-  cpp: "C++",
-  fsharp: "F Sharp",
-  ocaml: "OCaml",
-  crystal: "Crystal",
-  clojure: "Clojure",
-  nim: "Nim",
-  objc: "Objective-C",
-  groovy: "Groovy",
-  solidity: "Solidity",
-  erlang: "Erlang",
-  fortran: "Fortran",
-  julia: "Julia",
-  shell: "Shell",
-  powershell: "PowerShell",
-  reason: "Reason",
-  racket: "Racket",
-  vb: "Visual Basic",
-  forth: "Forth",
-  factor: "Factor",
-  cobol: "COBOL ",
-  coq: "Coq",
-  haxe: "Haxe",
-  elm: "Elm ",
-  cfml: "CFML",
-  purescript: "PureScript ",
-  commonlisp: "Common Lisp",
-  perl: "Perl",
-  raku: "Raku",
-  pascal: "Pascal",
-  d: "D",
-};
 
 function createLangCard(langName, data) {
   const langContainer = document.createElement("div");
