@@ -267,78 +267,25 @@ nav {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .langList {
-    //@include flexBox(column, center, center);
-    // display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    // gap: 30px;
-  }
-}
+// @media screen and (max-width: 768px) {
+//   .langList {
+//     //@include flexBox(column, center, center);
+//     // display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     // gap: 30px;
+//   }
+// }
 
-@media screen and (max-width: 425px) {
-  .langList {
-    gap: 15px;
-  }
-
+@media screen and (max-width: 475px) {
   .langCard {
-    width: 200px;
+    width: 180px;
     height: 200px;
-    // background-color: rgb(83, 83, 83);
-    padding: 5px;
-    // border-radius: 8px;
-    // transition: all 0.5s ease;
-    // display: flex;
-    // flex-direction: column;
-
-    .headerCard {
-      // display: flex;
-      // flex-direction: row;
-      font-size: 2rem;
-    }
-
-    .infoCard {
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: center;
-      // align-items: center;
-      font-size: 1.5rem;
-    }
-
-    img {
-      width: 30px;
-      height: 30px;
-    }
   }
 }
 
 @media screen and (max-width: 376px) {
-  .langList {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
   .langCard {
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-
-    .headerCard {
-      // display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .infoCard {
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: center;
-      // align-items: center;
-      gap: 10px;
-    }
-
-    img {
-      width: 50px;
-      height: 50px;
-    }
+    width: 220px;
+    height: 240px;
   }
 }

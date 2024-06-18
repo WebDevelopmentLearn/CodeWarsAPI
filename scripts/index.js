@@ -62,19 +62,7 @@ function createLangCard(langName, data) {
   const infoCard = document.createElement("div");
   infoCard.classList.add("infoCard");
 
-  // for (const langKey in langObj) {
-  //   const element = langObj[langKey];
-  //   // console.log(langKey, element);
-  //   // console.log(langName, langKey);
-  //   // if (langKey === langName) {
-  //   //   elementsObj.lang.textContent = element;
-  //   // } else {
-  //   //   elementsObj.lang.textContent = langName;
-  //   // }
-  //   elementsObj.lang.textContent = langKey === langName ? element : langName;
-  // }
-
-  let iconUrl = `./assets/langs/${langName}_icon.svg`;
+  let iconUrl = `../assets/langs/${langName}_icon.svg`;
   // console.log(`OldName: ${langName}`);
   if (langName in langObj) {
     langName = langObj[langName];
@@ -87,7 +75,7 @@ function createLangCard(langName, data) {
   const langIcon = document.createElement("img");
   langIcon.classList.add("langIcon");
   langIcon.onerror = function () {
-    langIcon.src = `./assets/production.png`; // Изменяем src непосредственно
+    langIcon.src = `../assets/production.png`; // Изменяем src непосредственно
   };
   langIcon.src = iconUrl;
 

@@ -269,49 +269,15 @@ nav .githubSourceBtn:visited {
     transform: scaleY(1);
   }
 }
-@media screen and (max-width: 768px) {
-  .langList {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media screen and (max-width: 425px) {
-  .langList {
-    gap: 15px;
-  }
+@media screen and (max-width: 475px) {
   .langCard {
-    width: 200px;
+    width: 180px;
     height: 200px;
-    padding: 5px;
-  }
-  .langCard .headerCard {
-    font-size: 2rem;
-  }
-  .langCard .infoCard {
-    font-size: 1.5rem;
-  }
-  .langCard img {
-    width: 30px;
-    height: 30px;
   }
 }
 @media screen and (max-width: 376px) {
-  .langList {
-    grid-template-columns: repeat(1, 1fr);
-  }
   .langCard {
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-  .langCard .headerCard {
-    flex-direction: column;
-    align-items: center;
-  }
-  .langCard .infoCard {
-    gap: 10px;
-  }
-  .langCard img {
-    width: 50px;
-    height: 50px;
+    width: 220px;
+    height: 240px;
   }
 }/*# sourceMappingURL=style.css.map */
