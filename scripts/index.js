@@ -3,7 +3,7 @@ const input = document.querySelector("#nickname");
 const btn = document.querySelector(".superBtn");
 const img = document.querySelector(".avatar");
 const langList = document.querySelector(".langList");
-const sortBtn = document.querySelector(".sortBtn");
+// const sortBtn = document.querySelector(".sortBtn");
 // const defaulH2 = h2.textContent;
 const githubSourceBtn = document.querySelector(".githubSourceBtn");
 const githubSpan = document.querySelector("#githubSpan");
@@ -65,8 +65,43 @@ const langObj = {
   scala: "Scala",
   ruby: "Ruby",
   r: "R",
+  haskell: "Haskell",
+  elixir: "Elixir",
+  dart: "Dart",
+  typescript: "TypeScript",
+  coffeescript: "CoffeeScript",
+  rust: "Rust",
   go: "Golang",
   cpp: "C++",
+  fsharp: "F Sharp",
+  ocaml: "OCaml",
+  crystal: "Crystal",
+  clojure: "Clojure",
+  nim: "Nim",
+  objc: "Objective-C",
+  groovy: "Groovy",
+  solidity: "Solidity",
+  erlang: "Erlang",
+  fortran: "Fortran",
+  julia: "Julia",
+  shell: "Shell",
+  powershell: "PowerShell",
+  reason: "Reason",
+  racket: "Racket",
+  vb: "Visual Basic",
+  forth: "Forth",
+  factor: "Factor",
+  cobol: "COBOL ",
+  coq: "Coq",
+  haxe: "Haxe",
+  elm: "Elm ",
+  cfml: "CFML",
+  purescript: "PureScript ",
+  commonlisp: "Common Lisp",
+  perl: "Perl",
+  raku: "Raku",
+  pascal: "Pascal",
+  d: "D",
 };
 
 function createLangCard(langName, data) {
@@ -92,7 +127,7 @@ function createLangCard(langName, data) {
   //   elementsObj.lang.textContent = langKey === langName ? element : langName;
   // }
 
-  const iconUrl = `../assets/langs/${langName}_icon.svg`;
+  let iconUrl = `../assets/langs/${langName}_icon.svg`;
   // console.log(`OldName: ${langName}`);
   if (langName in langObj) {
     langName = langObj[langName];
@@ -104,7 +139,10 @@ function createLangCard(langName, data) {
   elementsObj.color.textContent += data.color;
   const langIcon = document.createElement("img");
   langIcon.classList.add("langIcon");
-  langIcon.setAttribute("src", iconUrl);
+  langIcon.onerror = function () {
+    langIcon.src = `../assets/production.png`; // Изменяем src непосредственно
+  };
+  langIcon.src = iconUrl;
 
   const newObj = {
     lang: langName,
@@ -116,28 +154,22 @@ function createLangCard(langName, data) {
 
   skillsObj.push(newObj);
   headerCard.append(langIcon, elementsObj.lang);
-  infoCard.append(elementsObj.rank, elementsObj.score, elementsObj.color);
+  infoCard.append(elementsObj.rankType, elementsObj.score, elementsObj.color);
   langContainer.append(headerCard, infoCard);
 
   langContainer.style.border = `1px solid ${data.color}`;
   langContainer.style.boxShadow = `0px 0px 10px ${data.color}`;
 
   langContainer.addEventListener("pointerover", (event) => {
-    langContainer.style.boxShadow = `0px 0px 20px ${data.color}`;
+    langContainer.style.boxShadow = `0px 0px 30px ${data.color}`;
+    langContainer.style.border = `2px solid ${data.color}`;
   });
-
   langContainer.addEventListener("pointerout", (event) => {
     langContainer.style.boxShadow = `0px 0px 10px ${data.color}`;
+    langContainer.style.border = `1px solid ${data.color}`;
   });
-  console.log("test");
   return langContainer;
 }
-
-// function hoverRender(event) {
-//     let x = event.offsetX;
-//     let y = event.offsetY;
-//     console.log(x, y);
-// }
 
 async function fetchAdditionData() {
   let data = null;
@@ -158,12 +190,25 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (input.value === "") return;
   try {
+    const container = document.createElement("div");
+    container.classList.add("container");
+    for (let i = 0; i < 4; i++) {
+      const bar = document.createElement("div");
+      bar.classList.add("bar");
+      container.append(bar);
+    }
+    langList.textContent = "";
+    profile.textContent = "";
+    profile.append(container);
+
     const data = await fetchData();
     const additionData = await fetchAdditionData();
-    console.log(data);
-    console.log(additionData);
-    const badge = document.createElement("img");
     profile.textContent = "";
+    // console.log(data);
+    console.log(additionData);
+    getCompleetedKataData(additionData);
+    const badge = document.createElement("img");
+
     badge.setAttribute("src", `https://www.codewars.com/users/${data.username}/badges/large`);
     badge.classList.add("userBadge");
 
@@ -190,15 +235,47 @@ form.addEventListener("submit", async (event) => {
     console.error("Error getting data:", error);
   }
 });
+const completedKataArray = [];
+function getCompleetedKataData(additionData) {
+  for (const key in additionData.data) {
+    const value = additionData.data[key];
 
-sortBtn.addEventListener("click", () => {
-  if (skillsObj.length === 0) return;
-  let sortedArray = skillsObj.sort((firstEl, secondEl) => {
-    return firstEl.score - secondEl.score;
-  });
-  skillsObj = sortedArray;
-  console.log(skillsObj);
-});
+    // completedAt
+    // :
+    // "2024-06-18T13:47:45.135Z"
+    // completedLanguages
+    // :
+    // ['javascript']
+    // id
+    // :
+    // "57a0556c7cb1f31ab3000ad7"
+    // name
+    // :
+    // "MakeUpperCase"
+    // slug
+    // :
+    // "makeuppercase"
+
+    console.log(key, value);
+    const kataObj = {
+      title: value.name,
+      id: value.id,
+      completedLanguages: value.completedLanguages,
+      completedAt: value.completedAt,
+    };
+    completedKataArray.push(kataObj);
+  }
+  console.log(completedKataArray);
+}
+
+// sortBtn.addEventListener("click", () => {
+//   if (skillsObj.length === 0) return;
+//   let sortedArray = skillsObj.sort((firstEl, secondEl) => {
+//     return firstEl.score - secondEl.score;
+//   });
+//   skillsObj = sortedArray;
+//   console.log(skillsObj);
+// });
 
 function updateLangList(objArray) {}
 
@@ -220,3 +297,9 @@ function setStyles(type) {
     type === "mouseover" ? "./assets/github_logo_light.svg" : "./assets/github_logo_dark.svg"
   );
 }
+
+// btn.addEventListener("click", (event) => {
+//   console.log(getComputedStyle(event.target));
+//   // event.target.setAttribute("transform", "scale(1.05)");
+//   event.target.style.transform = "scale(1.05)";
+// });

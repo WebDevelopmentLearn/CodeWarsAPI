@@ -47,7 +47,19 @@
         </div>
         <input type="submit" class="superBtn" value="Получить статистику" />
       </form>
-      <button class="sortBtn">Отсортировать</button>
+      <!-- <button class="sortBtn">Отсортировать</button> -->
+      <form>
+        <!-- <label for="city-select">Сортировать по</label> -->
+        <select name="cardSort" id="cardSort">
+          <option value="">-- Сортировать по --</option>
+          <option value="scoreUp">По очкам в порядку возрастания</option>
+          <option value="scoreDown">По очкам в порядку убывания</option>
+          <!-- <option value="rankUp">По очкам в порядку убывания</option>
+            <option value="rank">По очкам в порядку убывания</option> -->
+          <option value="color">По редкости</option>
+          <!-- <option value="novosibirsk">Новосибирск</option> -->
+        </select>
+      </form>
 
       <!-- <div class="langCard">
         <div class="headerCard">
