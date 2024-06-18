@@ -1,6 +1,18 @@
 import { langObj, HEADERS } from "../src/utils.js";
 
-import { form, input, btn, img, langList, githubSourceBtn, githubLogo, githubSpan, profile } from "../src/elements.js";
+import {
+  form,
+  input,
+  btn,
+  img,
+  langList,
+  githubSourceBtn,
+  githubLogo,
+  githubSpan,
+  profile,
+  openSidebarBtn,
+  sidebarContainer,
+} from "../src/elements.js";
 
 async function fetchData() {
   let data = null;
@@ -62,7 +74,7 @@ function createLangCard(langName, data) {
   //   elementsObj.lang.textContent = langKey === langName ? element : langName;
   // }
 
-  let iconUrl = `../assets/langs/${langName}_icon.svg`;
+  let iconUrl = `./assets/langs/${langName}_icon.svg`;
   // console.log(`OldName: ${langName}`);
   if (langName in langObj) {
     langName = langObj[langName];
@@ -75,7 +87,7 @@ function createLangCard(langName, data) {
   const langIcon = document.createElement("img");
   langIcon.classList.add("langIcon");
   langIcon.onerror = function () {
-    langIcon.src = `../assets/production.png`; // Изменяем src непосредственно
+    langIcon.src = `./assets/production.png`; // Изменяем src непосредственно
   };
   langIcon.src = iconUrl;
 
@@ -222,6 +234,10 @@ githubSourceBtn.addEventListener("mouseout", (event) => {
   setStyles("mouseout");
 });
 
+// openSidebarBtn.addEventListener("click", () => {
+//   sidebarContainer.classList.add("open");
+// });
+
 function setStyles(type) {
   type === "mouseover"
     ? (githubSourceBtn.style.backgroundColor = "#434343")
@@ -232,9 +248,3 @@ function setStyles(type) {
     type === "mouseover" ? "./assets/github_logo_light.svg" : "./assets/github_logo_dark.svg"
   );
 }
-
-// btn.addEventListener("click", (event) => {
-//   console.log(getComputedStyle(event.target));
-//   // event.target.setAttribute("transform", "scale(1.05)");
-//   event.target.style.transform = "scale(1.05)";
-// });

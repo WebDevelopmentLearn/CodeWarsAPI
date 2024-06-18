@@ -34,6 +34,10 @@ span {
   font-size: 2rem;
 }
 
+body {
+  position: relative;
+}
+
 nav {
   display: flex;
   flex-direction: row;
@@ -72,11 +76,31 @@ nav .githubSourceBtn #githubSpan {
   color: #000000;
 }
 nav .githubSourceBtn .githubLogo {
+  width: 20px;
   height: 20px;
 }
 nav .githubSourceBtn:visited {
   text-decoration: none;
   color: #000000;
+}
+
+.sidebarContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 420px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2117647059);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  transform: translateX(100%);
+}
+
+.sidebarContainer.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0%);
 }
 
 .mainContainer {

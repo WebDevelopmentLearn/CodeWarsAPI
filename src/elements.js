@@ -8,3 +8,6 @@ export const githubSourceBtn = document.querySelector(".githubSourceBtn");
 export const githubSpan = document.querySelector("#githubSpan");
 export const githubLogo = document.querySelector(".githubLogo");
 export const profile = document.querySelector(".profile");
+
+export const openSidebarBtn = document.querySelector(".openSidebarBtn");
+export const sidebarContainer = document.querySelector(".sidebarContainer");
