@@ -1,4 +1,4 @@
-import { langObj, HEADERS } from "./src/utils.js";
+import { langObj, HEADERS } from "../src/utils.js";
 
 import {
   form,
@@ -12,7 +12,7 @@ import {
   profile,
   openSidebarBtn,
   sidebarContainer,
-} from "./src/elements.js";
+} from "../src/elements.js";
 
 async function fetchData() {
   let data = null;
