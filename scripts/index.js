@@ -1,4 +1,4 @@
-import { langObj, HEADERS } from "../src/utils.js";
+import { langObj, HEADERS } from "./src/utils.js";
 
 import {
   form,
@@ -12,7 +12,7 @@ import {
   profile,
   openSidebarBtn,
   sidebarContainer,
-} from "../src/elements.js";
+} from "./src/elements.js";
 
 async function fetchData() {
   let data = null;
@@ -62,7 +62,7 @@ function createLangCard(langName, data) {
   const infoCard = document.createElement("div");
   infoCard.classList.add("infoCard");
 
-  let iconUrl = `../assets/langs/${langName}_icon.svg`;
+  let iconUrl = `./assets/langs/${langName}_icon.svg`;
   // console.log(`OldName: ${langName}`);
   if (langName in langObj) {
     langName = langObj[langName];
@@ -75,7 +75,7 @@ function createLangCard(langName, data) {
   const langIcon = document.createElement("img");
   langIcon.classList.add("langIcon");
   langIcon.onerror = function () {
-    langIcon.src = `../assets/production.png`; // Изменяем src непосредственно
+    langIcon.src = `./assets/production.png`; // Изменяем src непосредственно
   };
   langIcon.src = iconUrl;
 
